@@ -1,0 +1,72 @@
+<!doctype html>  
+<html lang="en" ng-app="angularTvshow">  
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angular TVShow app</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+</head>  
+<body ng-controller="mainController">  
+    <div class="container"> 
+    <!--Cabecera-->
+        <div class="jumbotron text-center">
+            <h1>Angular TVShow List <span class="label label-info">{{ tvshows.length }}</span></h1>
+        </div>
+        <div class="jumbotron text-center">
+            <a href="#">Count <span class="badge">{{ tvshows.length }}</span></a>
+            <button class="btn btn-primary" type="button">
+                Count <span class="badge">{{ tvshows.length }}</span>
+            </button>
+            <div></div>
+            <span class="label label-default">Default</span>
+            <span class="label label-primary">Primary</span>
+            <span class="label label-success">Success</span>
+            <span class="label label-info">Info</span>
+            <span class="label label-warning">Warning</span>
+            <span class="label label-danger">Danger</span>
+        </div>
+
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">PRUEBA DE MEAN</div>
+    <div class="panel-body">
+        <p>Esto es una prueba de ABM mediante el desarrollo con el stack tecnológico MEAN. </p>
+    </div>
+
+        <!--Lista de tvshows-->
+        <table class="table">
+            <th></th><th>#</th><th>Título</th><th>Año</th><th>País</th><th>Temporadas</th>
+            <tr ng-repeat="tvshow in tvshows">
+                <td><a href="#" ng-click="deleteTvshow(tvshow._id,$index)"><span class="glyphicon glyphicon-remove-circle text-danger" aria-hidden="true"></span></a></td>
+                <td>{{ $index }}</td>
+                <td>{{ tvshow.title }}</td>
+                <td>{{ tvshow.year }}</td>
+                <td>{{ tvshow.country }}</td>
+                <td>{{ tvshow.seasons }}</td>
+            </tr>
+        </table>
+    </div>
+
+         <!--Formulario para insertar nuevos tvshow-->             <div id="tvshow-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg" placeholder="Título" ng-model="formData.title">
+                        <input type="text" class="form-control input-lg" placeholder="Año" ng-model="formData.year">
+                        <input type="text" class="form-control input-lg" placeholder="País" ng-model="formData.country">
+                        <input type="text" class="form-control input-lg" placeholder="Temporadas" ng-model="formData.seasons">
+                    </div>
+                    <div class="text-right"><button class="btn btn-primary btn-lg" ng-click="createTvshow()">Añadir</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-success" role="alert">Prueba de alert success</div>
+    <div class="alert alert-info" role="alert">Prueba de alert info</div>
+    <div class="alert alert-warning" role="alert">Prueba de alert warning</div>
+    <div class="alert alert-danger" role="alert">Prueba de alert danger</div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> 
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js">
+    </script> <script src="main.js"></script>
+</body>  
+</html>  
